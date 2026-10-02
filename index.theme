@@ -1,6 +1,6 @@
 [Icon Theme]
 Name=pbar_icons
-Comment=Neuwaita + MacTahoe folders, Papirus-Dark symbolic and fallback
+Comment=Neuwaita + MacTahoe folders and archives, Papirus-Dark symbolic and fallback
 Inherits=Papirus-Dark,breeze-dark,hicolor
 Example=folder
 
@@ -20,7 +20,7 @@ SmallSizes=16
 PanelDefault=32
 PanelSizes=16,22,32,48,64,72,96,128
 
-Directories=16x16/symbolic/actions,16x16/symbolic/apps,16x16/symbolic/categories,16x16/symbolic/devices,16x16/symbolic/emblems,16x16/symbolic/emotes,16x16/symbolic/mimetypes,16x16/symbolic/places,16x16/symbolic/status,16x16/symbolic/up-to-32,22x22/symbolic/actions,22x22/symbolic/apps,22x22/symbolic/categories,22x22/symbolic/devices,22x22/symbolic/emblems,22x22/symbolic/mimetypes,22x22/symbolic/places,22x22/symbolic/status,24x24/symbolic/actions,24x24/symbolic/apps,24x24/symbolic/categories,24x24/symbolic/devices,24x24/symbolic/emblems,24x24/symbolic/mimetypes,24x24/symbolic/places,24x24/symbolic/status,32x32/symbolic/actions,32x32/symbolic/apps,32x32/symbolic/categories,32x32/symbolic/devices,32x32/symbolic/emblems,32x32/symbolic/emotes,32x32/symbolic/mimetypes,32x32/symbolic/places,32x32/symbolic/status,fallback/breeze/actions/16,fallback/breeze/actions/22,fallback/breeze/actions/24,fallback/breeze/actions/32,fallback/breeze/applets/48,fallback/breeze/applets/64,fallback/breeze/apps/16,fallback/breeze/apps/22,fallback/breeze/apps/48,fallback/breeze/categories/22,fallback/breeze/devices/16,fallback/breeze/devices/22,fallback/breeze/devices/32,fallback/breeze/devices/64,fallback/breeze/emblems/16,fallback/breeze/emotes/22,fallback/breeze/mimetypes/16,fallback/breeze/mimetypes/22,fallback/breeze/mimetypes/32,fallback/breeze/mimetypes/64,fallback/breeze/places/16,fallback/breeze/places/22,fallback/breeze/preferences/22,fallback/breeze/preferences/32,fallback/breeze/status/16,fallback/breeze/status/22,fallback/breeze/status/24,fallback/breeze/status/32,fallback/papirus/128x128/apps,fallback/papirus/128x128/devices,fallback/papirus/128x128/mimetypes,fallback/papirus/128x128/places,fallback/papirus/16x16/actions,fallback/papirus/16x16/apps,fallback/papirus/16x16/categories,fallback/papirus/16x16/devices,fallback/papirus/16x16/emotes,fallback/papirus/16x16/mimetypes,fallback/papirus/16x16/panel,fallback/papirus/16x16/places,fallback/papirus/16x16/status,fallback/papirus/18x18/actions,fallback/papirus/22x22/actions,fallback/papirus/22x22/apps,fallback/papirus/22x22/categories,fallback/papirus/22x22/devices,fallback/papirus/22x22/emotes,fallback/papirus/22x22/mimetypes,fallback/papirus/22x22/panel,fallback/papirus/22x22/places,fallback/papirus/22x22/status,fallback/papirus/24x24/actions,fallback/papirus/24x24/apps,fallback/papirus/24x24/categories,fallback/papirus/24x24/devices,fallback/papirus/24x24/emotes,fallback/papirus/24x24/mimetypes,fallback/papirus/24x24/panel,fallback/papirus/24x24/places,fallback/papirus/24x24/status,fallback/papirus/32x32/actions,fallback/papirus/32x32/apps,fallback/papirus/32x32/categories,fallback/papirus/32x32/devices,fallback/papirus/32x32/emotes,fallback/papirus/32x32/mimetypes,fallback/papirus/32x32/places,fallback/papirus/32x32/status,fallback/papirus/48x48/apps,fallback/papirus/48x48/categories,fallback/papirus/48x48/devices,fallback/papirus/48x48/emotes,fallback/papirus/48x48/mimetypes,fallback/papirus/48x48/places,fallback/papirus/48x48/status,fallback/papirus/64x64/apps,fallback/papirus/64x64/categories,fallback/papirus/64x64/devices,fallback/papirus/64x64/mimetypes,fallback/papirus/64x64/places,fallback/papirus/96x96/apps,fallback/papirus/96x96/devices,fallback/papirus/96x96/mimetypes,fallback/papirus/96x96/places,folders/16,folders/22,folders/24,folders/scalable,scalable/apps,scalable/mimetypes,scalable/places
+Directories=16x16/symbolic/actions,16x16/symbolic/apps,16x16/symbolic/categories,16x16/symbolic/devices,16x16/symbolic/emblems,16x16/symbolic/emotes,16x16/symbolic/mimetypes,16x16/symbolic/places,16x16/symbolic/status,16x16/symbolic/up-to-32,22x22/symbolic/actions,22x22/symbolic/apps,22x22/symbolic/categories,22x22/symbolic/devices,22x22/symbolic/emblems,22x22/symbolic/mimetypes,22x22/symbolic/places,22x22/symbolic/status,24x24/symbolic/actions,24x24/symbolic/apps,24x24/symbolic/categories,24x24/symbolic/devices,24x24/symbolic/emblems,24x24/symbolic/mimetypes,24x24/symbolic/places,24x24/symbolic/status,32x32/symbolic/actions,32x32/symbolic/apps,32x32/symbolic/categories,32x32/symbolic/devices,32x32/symbolic/emblems,32x32/symbolic/emotes,32x32/symbolic/mimetypes,32x32/symbolic/places,32x32/symbolic/status,archives/16,archives/22,archives/scalable,fallback/breeze/actions/16,fallback/breeze/actions/22,fallback/breeze/actions/24,fallback/breeze/actions/32,fallback/breeze/applets/48,fallback/breeze/applets/64,fallback/breeze/apps/16,fallback/breeze/apps/22,fallback/breeze/apps/48,fallback/breeze/categories/22,fallback/breeze/devices/16,fallback/breeze/devices/22,fallback/breeze/devices/32,fallback/breeze/devices/64,fallback/breeze/emblems/16,fallback/breeze/emotes/22,fallback/breeze/mimetypes/16,fallback/breeze/mimetypes/22,fallback/breeze/mimetypes/32,fallback/breeze/mimetypes/64,fallback/breeze/places/16,fallback/breeze/places/22,fallback/breeze/preferences/22,fallback/breeze/preferences/32,fallback/breeze/status/16,fallback/breeze/status/22,fallback/breeze/status/24,fallback/breeze/status/32,fallback/papirus/128x128/apps,fallback/papirus/128x128/devices,fallback/papirus/128x128/mimetypes,fallback/papirus/128x128/places,fallback/papirus/16x16/actions,fallback/papirus/16x16/apps,fallback/papirus/16x16/categories,fallback/papirus/16x16/devices,fallback/papirus/16x16/emotes,fallback/papirus/16x16/mimetypes,fallback/papirus/16x16/panel,fallback/papirus/16x16/places,fallback/papirus/16x16/status,fallback/papirus/18x18/actions,fallback/papirus/22x22/actions,fallback/papirus/22x22/apps,fallback/papirus/22x22/categories,fallback/papirus/22x22/devices,fallback/papirus/22x22/emotes,fallback/papirus/22x22/mimetypes,fallback/papirus/22x22/panel,fallback/papirus/22x22/places,fallback/papirus/22x22/status,fallback/papirus/24x24/actions,fallback/papirus/24x24/apps,fallback/papirus/24x24/categories,fallback/papirus/24x24/devices,fallback/papirus/24x24/emotes,fallback/papirus/24x24/mimetypes,fallback/papirus/24x24/panel,fallback/papirus/24x24/places,fallback/papirus/24x24/status,fallback/papirus/32x32/actions,fallback/papirus/32x32/apps,fallback/papirus/32x32/categories,fallback/papirus/32x32/devices,fallback/papirus/32x32/emotes,fallback/papirus/32x32/mimetypes,fallback/papirus/32x32/places,fallback/papirus/32x32/status,fallback/papirus/48x48/apps,fallback/papirus/48x48/categories,fallback/papirus/48x48/devices,fallback/papirus/48x48/emotes,fallback/papirus/48x48/mimetypes,fallback/papirus/48x48/places,fallback/papirus/48x48/status,fallback/papirus/64x64/apps,fallback/papirus/64x64/categories,fallback/papirus/64x64/devices,fallback/papirus/64x64/mimetypes,fallback/papirus/64x64/places,fallback/papirus/96x96/apps,fallback/papirus/96x96/devices,fallback/papirus/96x96/mimetypes,fallback/papirus/96x96/places,folders/16,folders/22,folders/24,folders/scalable,scalable/apps,scalable/mimetypes,scalable/places
 
 [16x16/symbolic/actions]
 Context=Actions
@@ -198,6 +198,23 @@ Type=Fixed
 Context=Status
 Size=32
 Type=Fixed
+
+[archives/16]
+Size=16
+Context=MimeTypes
+Type=Fixed
+
+[archives/22]
+Size=22
+Context=MimeTypes
+Type=Fixed
+
+[archives/scalable]
+Size=64
+Context=MimeTypes
+MinSize=24
+MaxSize=512
+Type=Scalable
 
 [fallback/breeze/actions/16]
 Size=16

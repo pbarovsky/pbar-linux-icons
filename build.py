@@ -3,6 +3,7 @@
 
   - цветные значки (apps, mimetypes, places) — Neuwaita
   - папки (все цвета и типы) — MacTahoe-dark / MacTahoe
+  - архивы (zip, tar, 7z, rar…) — MacTahoe
   - symbolic / трей / стрелки / точки — Papirus-Dark
     (symbolic перекрашены в светлый цвет под тёмную тему)
   - всё остальное — Papirus-Dark -> breeze-dark -> hicolor
@@ -158,6 +159,55 @@ for d in folder_dirs:
         os.symlink(f"{target}.svg", d / f"{n}.svg")
     ours |= names_in(d)
 
+# ------------------------------------------------- 3a. Архивы из MacTahoe
+# Neuwaita архивов почти не рисует, без этого zip/tar/7z/rar были бы из Papirus
+ARCHIVE_RE = re.compile(
+    r"^(application-|gnome-mime-application-)?(x-)?"
+    r"(zip|7zip|7z-compressed|7z-compressed-tar|archive|archive-zip|archive-blank|"
+    r"tar|tarz|compressed-tar|compress|compress-tar|compressed|"
+    r"gzip|bzip|bzip-compressed|bzip-compressed-tar|bzip2-compressed|bzip2-compressed-tar|"
+    r"xz|xz-compressed-tar|lzma|lzma-compressed-tar|lzip|lzip-compressed-tar|lzop|"
+    r"lrzip|lrzip-compressed-tar|lz4|lz4-compressed-tar|zstd|zstd-compressed-tar|zlib|"
+    r"rar|rar-compressed|vnd\.rar|cpio|cpio-compress|cpio-compressed|arj|ace|lha|lhz|zoo|"
+    r"stuffit|shar|ar|pak|vnd\.ms-cab-compressed|7z-ace|7z-arj|asar)$"
+    r"|^(zip|rar|tar|tgz|7zip|archive|package|package-x-generic)$"
+)
+mt_mimes = MACTAHOE[-1] / "mimes"
+archive_dirs = []
+for size in ("16", "22", "scalable"):
+    src = mt_mimes / size
+    names = {n for n in names_in(src) if ARCHIVE_RE.match(n)}
+    dst = add_dir(f"archives/{size}", **dict(mt_idx.items(f"mimes/{size}")))
+    for n in sorted(names):
+        f = src / f"{n}.svg"
+        if not f.exists():
+            continue
+        link = os.readlink(f) if f.is_symlink() else None
+        if link and "/" not in link and Path(link).stem in names:
+            os.symlink(link, dst / f.name)
+        else:
+            shutil.copy(f, dst / f.name)
+    for f in dst.iterdir():
+        if f.is_symlink() and not f.exists():
+            f.unlink()
+    archive_dirs.append(dst)
+archive_names = set().union(*(names_in(d) for d in archive_dirs))
+# одноимённые иконки Neuwaita убираем, чтобы не спорили с MacTahoe
+for n in archive_names:
+    (OUT / "scalable/mimetypes" / f"{n}.svg").unlink(missing_ok=True)
+# архивные типы Papirus, которых нет в MacTahoe -> общий архив MacTahoe
+for d in papirus.glob("*/mimetypes"):
+    for n in names_in(d):
+        if ARCHIVE_RE.match(n) and n not in archive_names:
+            archive_names.add(n)
+            for ad in archive_dirs:
+                if (ad / "application-x-archive.svg").exists():
+                    os.symlink("application-x-archive.svg", ad / f"{n}.svg")
+ours |= archive_names
+for f in (OUT / "scalable/mimetypes").iterdir():
+    if f.is_symlink() and not f.exists():
+        f.unlink()
+
 # ---------- 3b. Значки файловых менеджеров = стандартная голубая папка MacTahoe
 FILE_MANAGER_ICONS = [
     "org.gnome.Nautilus", "nautilus", "org.kde.dolphin", "dolphin",
@@ -238,6 +288,7 @@ def chain(n: str):
 
 
 fb_count = 0
+fb_copied: dict[Path, Path] = {}  # исходный файл -> его копия у нас
 for label, theme in FALLBACKS:
     idx = read_index(theme)
     dirs = [d for d in idx.get("Icon Theme", "Directories", fallback="").split(",") if d]
@@ -257,7 +308,14 @@ for label, theme in FALLBACKS:
                 continue
             rel = f"fallback/{label}/{d}"
             dst = add_dir(rel, **dict(idx.items(d)))
-            os.symlink(f.resolve(), dst / f.name)
+            # копируем, а не ссылаемся: тема должна работать на любой машине;
+            # одинаковые файлы — одна копия и относительные ссылки на неё
+            real = f.resolve()
+            if real in fb_copied:
+                os.symlink(os.path.relpath(fb_copied[real], dst), dst / f.name)
+            else:
+                shutil.copy(real, dst / f.name)
+                fb_copied[real] = dst / f.name
         ours.add(n)
         fb_count += 1
 
@@ -266,7 +324,7 @@ dirs = sorted(sections)
 lines = [
     "[Icon Theme]",
     "Name=pbar_icons",
-    "Comment=Neuwaita + MacTahoe folders, Papirus-Dark symbolic and fallback",
+    "Comment=Neuwaita + MacTahoe folders and archives, Papirus-Dark symbolic and fallback",
     "Inherits=Papirus-Dark,breeze-dark,hicolor",
     "Example=folder",
     "",
