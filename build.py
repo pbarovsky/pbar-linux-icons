@@ -79,8 +79,9 @@ for cat in ("apps", "mimetypes", "places"):
     dst = add_dir(rel, Context=CTX[cat], Size="128", MinSize="8", MaxSize="512", Type="Scalable")
     for f in (NEUWAITA / rel).iterdir():
         n = f.stem
-        # папки берём из MacTahoe
-        if cat == "places" and (n.startswith("folder") or n in ("user-home", "user-desktop")):
+        # папки и корзину берём из MacTahoe
+        if cat == "places" and (n.startswith("folder") or "trash" in n
+                                or n in ("user-home", "user-desktop")):
             continue
         if n.startswith("inode-directory") or n in NEUWAITA_DROP:
             continue
@@ -92,6 +93,8 @@ for f in (OUT / "scalable").rglob("*"):
         f.unlink()
 
 # ------------------------------------------------------ 2. Папки MacTahoe
+# Вместе с папками — корзина (пустая и полная), чтобы в «Точках входа»
+# Dolphin она была в том же стиле.
 # 16/22/24 — монохромные контурные (в MacTahoe-dark — светлые), scalable —
 # цветные, со всеми вариантами: цвета (folder-red, folder-blue, folder-brown…)
 # и типы (folder-music, folder-mail, folder-tar…). Их предлагает Dolphin
@@ -101,7 +104,7 @@ mt_idx = read_index(MACTAHOE[-1])
 
 
 def is_folder_name(n: str) -> bool:
-    return ("folder" in n or n in ("inode-directory", "desktop")
+    return ("folder" in n or "trash" in n or n in ("inode-directory", "desktop")
             or re.fullmatch(r"([a-z]+-)?user-(home|desktop|images|pictures)", n) is not None)
 
 
